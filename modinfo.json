@@ -1,0 +1,13 @@
+{
+	"id": "nassoc.mothdiversity",
+	"name": "Moth Diversity",
+	"version": "0.0.1",
+	"hide_version": false,
+	"authors": "NonIdiot",
+	"description": "What if moths were actually diversely colored and patterned like Scavengers? Well, this mod makes it a reality!",
+	"requirements": ["watcher"],
+	"requirements_names": ["The Watcher"],
+	"priorities": ["slime-cubed.devconsole"],
+	"checksum_override_version": false,
+	"tags": ["Watcher"]
+}
