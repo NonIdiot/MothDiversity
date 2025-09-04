@@ -4,7 +4,7 @@
 	"version": "1.0.1",
 	"hide_version": false,
 	"authors": "NonIdiot",
-	"description": "What if Big Moths were actually diversely colored and patterned like Scavengers? Well, this mod makes it a reality!",
+	"description": "[b] Requires The Watcher DLC! [/b]\nWhat if Big Moths were actually diversely colored and patterned like Scavengers? Well, this mod makes it a reality!\n\nFeatures:\n- Colorful Moths (with multiple different variations of species and wing type)\n- A Remix Menu for finding the IDs of certain moths based on certain visual attributes\n- Easter Eggs :3\n- Compatibility with ALL types of Watcher Moths!\n\nIf you are using Dev Console, you can spawn a Moth ingame using the command [b]\"spawn BigMoth ID.0.<ID>\"[/b], such as spawning a moth with an ID of 420 using [b]\"spawn BigMoth ID.0.420\"[/b].",
 	"requirements": ["watcher"],
 	"requirements_names": ["The Watcher"],
 	"priorities": ["slime-cubed.devconsole"],
