@@ -41,7 +41,7 @@ using Logger = UnityEngine.Logger;
 namespace MothDiversity
 {
 
-    [BepInPlugin(MOD_ID, "MothDiversity", "1.0.0")]
+    [BepInPlugin(MOD_ID, "MothDiversity", "1.0.1")]
     internal class Plugin : BaseUnityPlugin
     {
         public const string MOD_ID = "nassoc.mothdiversity";
@@ -289,16 +289,16 @@ namespace MothDiversity
             }
             else
             {
-                Log(LogLevel.Info, "plue says grr "+whereIs+" "+MothDiversityConfig.prideMothSetting.Value);
+                //Log(LogLevel.Info, "plue says grr "+whereIs+" "+MothDiversityConfig.prideMothSetting.Value);
                 Plugin.onlyGay = false;
             }
 
             int num = (self.inFront ? self.owner.FirstInFrontWingSprite : self.owner.FirstBehindWingSprite) + self.firstSpriteOnLayer;
             float num2 = (float)((self.index == 1) ? -1 : 1);
             float a = 0.5f + self.spreadOutness * num2 * -1f * 0.5f;
+            UnityEngine.Random.State state = UnityEngine.Random.state;
             if (!self.owner.shadowMode)
             {
-                UnityEngine.Random.State state = UnityEngine.Random.state;
                 UnityEngine.Random.InitState(self.owner.bug.abstractCreature.ID.RandomSeed);
                 float bodyPatternColor = UnityEngine.Random.value + 0;
                 float wingPatternColor = UnityEngine.Random.value + 0;
@@ -473,6 +473,7 @@ namespace MothDiversity
                     self.owner.blinkCounter = 999;
                 }
             }
+            UnityEngine.Random.state = state;
 
             //self.owner.bodyColor = Color.blue;
         }
@@ -693,16 +694,16 @@ namespace MothDiversity
             if (whereSearched < searchStartIDBox.valueInt+10000 && mothMatches.Length < 10)
             {
                 label1.text = "Calculating... (at "+whereSearched+"/"+(searchStartIDBox.valueInt+10000)+", "+mothMatches.Length+"/10 matches)";
+                UnityEngine.Random.State state = UnityEngine.Random.state;
                 for (int i = 0; i < 20; i++)
                 {
                     whereSearched++;
+                    UnityEngine.Random.InitState(whereSearched);
                     Color[] whichColors = new Color[2];
                     Color b = Color.Lerp(new Color(0.5f, 0.25f, 0.1f), new Color(0.6f, 0.5f, 0.4f), 0.5f);
                     whichColors[0]=Color.Lerp(Color.Lerp(Color.white, b, Mathf.Pow(0.5f, 2f) * 0.17f), new Color(1f, 0.7f, 0.0f), (float) (((double) 0f - (double) Mathf.Pow(0.5f, 2f)) * 0.10000000149011612));
                     whichColors[1]=Color.Lerp(Color.Lerp(whichColors[0], new HSLColor(0.5f * 0.17f, 1f, 0.5f).rgb, 0.5f * 0.4f), Color.black, 0.3f);
                     int whichWing = 1;
-                    UnityEngine.Random.State state = UnityEngine.Random.state;
-                    UnityEngine.Random.InitState(whereSearched);
                     float bodyPatternColor = UnityEngine.Random.value + 0;
                     float wingPatternColor = UnityEngine.Random.value + 0;
                     float eyePatternColor = UnityEngine.Random.value + 0;
@@ -835,6 +836,7 @@ namespace MothDiversity
                         }
                     }
                 }
+                UnityEngine.Random.state = state;
             }
             else
             {
